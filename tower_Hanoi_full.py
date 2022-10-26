@@ -63,6 +63,22 @@ def towers_hanoi( num, source, destination, extra):
         towers_hanoi( num-1, extra, destination, source )
 
 
+def minMoves(num):
+    """
+        Formula to calculate the minimum number of moves
+        required to solve puzzle
+
+        num -> int: number of disks
+
+        function:
+            2**num - 1
+
+        output:
+            returns number
+    """
+    return 2**num - 1
+
+
 def play():
 
     try:
@@ -86,6 +102,9 @@ def main():
     t_dest = Tower(250)
 
     title('Towers of Hanoi simulated solution')
+
+    write('Minimum number of moves: ' + str(minMoves(n)),
+          align = 'center', font = ('Arial',20,'bold'))
 
     #create the stack of disks of size n
     for i in range(n, 0, -1):
